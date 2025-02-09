@@ -48,10 +48,6 @@ public class CCuenta {
         this.tipoInterés = tipoInterés;
     }
 
-    public double estado()
-    {
-        return saldo;
-    }
 
     public void ingresar(double cantidad) throws Exception
     {
@@ -64,7 +60,7 @@ public class CCuenta {
     {
         if (cantidad <= 0)
             throw new Exception ("No se puede retirar una cantidad negativa");
-        if (estado()< cantidad)
+        if (getSaldo()< cantidad)
             throw new Exception ("No se hay suficiente saldo");
         saldo = saldo - cantidad;
     }

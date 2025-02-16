@@ -6,10 +6,12 @@
 package damel.entornos.cuentas;
 
 /**
- * Entornos de desarrollo DAM Modalidad Virtual
- *
- * Curso 2024/2025
- *
+ * Clase que contiene el método pricipal del programa, donde se crean y 
+ * manipulan objetos de la clase CCuenta.
+ * 
+ * Se encarga de probar las operaciones de ingreso y retirada de saldo,
+ * mostrándolo en la consola.
+ * 
  * @author Borja Piñero
  */
 public class Main {

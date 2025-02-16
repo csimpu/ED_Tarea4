@@ -5,10 +5,10 @@
 package damel.entornos.cuentas;
 
 /**
- * Entornos de desarrollo DAM Modalidad Virtual
- *
- * Curso 2024/2025
- *
+ * La clase CCuenta representa una cuenta en la que se ralizan operaciones
+ * básicas, como ingresar o retirar saldo y consultar el disponible.
+ * También asegura que estas operaciones sean válidas.
+ * 
  * @author Borja Piñero
  */
 public class CCuenta {

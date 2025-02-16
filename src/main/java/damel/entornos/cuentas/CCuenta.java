@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 package damel.entornos.cuentas;
 
 /**
@@ -13,72 +12,151 @@ package damel.entornos.cuentas;
  * @author Borja Piñero
  */
 public class CCuenta {
-    
-    
 
     private String nombre;
     private String cuenta;
     private double saldo;
-    private double tipoInterés;
-
-    public CCuenta()
-    {
+    private double tipoInteres;
+    
+    /**
+     * Crea una cuenta
+     */
+    public CCuenta() {
     }
 
-    public CCuenta(String nom, String cue, double sal, double tipo)
-    {
-        nombre =nom;
-        cuenta=cue;
-        saldo=sal;
+    /**
+     * Crea una nueva cuenta, con los siguientes parámetros
+     *
+     * @param nom nombre del titular
+     * @param cue número de cuenta
+     * @param sal saldo actual
+     * @param tipo tipo de interés
+     */
+    public CCuenta(String nom, String cue, double sal, double tipo) {
+        nombre = nom;
+        cuenta = cue;
+        saldo = sal;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setCuenta(String cuenta) {
-        this.cuenta = cuenta;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
-    public void setTipoInterés(double tipoInterés) {
-        this.tipoInterés = tipoInterés;
-    }
-
-
-    public void ingresar(double cantidad) throws Exception
-    {
-        if (cantidad<0)
-            throw new Exception("No se puede ingresar una cantidad negativa");
-        saldo = saldo + cantidad;
-    }
-
-    public void retirar(double cantidad) throws Exception
-    {
-        if (cantidad <= 0)
-            throw new Exception ("No se puede retirar una cantidad negativa");
-        if (getSaldo()< cantidad)
-            throw new Exception ("No se hay suficiente saldo");
-        saldo = saldo - cantidad;
-    }
-
+    /**
+     * Obtiene el nombre del titular de la cuenta
+     *
+     * @return el nombre del titular de la cuenta
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Establece el nombre del titular de la cuenta
+     *
+     * @param nombre nombre de la cuenta
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * Obtiene el número de cuenta
+     *
+     * @return el número de cuenta
+     */
     public String getCuenta() {
         return cuenta;
     }
 
+    /**
+     * Establece el número de cuenta
+     *
+     * @param cuenta número de cuenta
+     */
+    public void setCuenta(String cuenta) {
+        this.cuenta = cuenta;
+    }
+
+    /**
+     * Obtiene el saldo de la cuenta
+     *
+     * @return el saldo de la cuenta
+     */
     public double getSaldo() {
         return saldo;
     }
 
-    public double getTipoInterés() {
-        return tipoInterés;
+    /**
+     * Establece el saldo de la cuenta
+     *
+     * @param saldo Nuevo saldo
+     */
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    /**
+     * Establece el tipo de interés de la cuenta
+     *
+     * @param tipoInteres el tipo de interés de la cuenta
+     */
+    public void setTipoInterés(double tipoInteres) {
+        this.tipoInteres = tipoInteres;
+    }
+
+    /**
+     * Obtiene el tipo de interés de la cuenta
+     *
+     * @return el tipo de interés de la cuenta
+     */
+    public double getTipoInteres() {
+        return tipoInteres;
+    }
+
+    /**
+     * Ingresa una cantidad positva en la cuenta
+     *
+     * @param cantidad cantidad a ingresar, siempre positiva
+     * @throws Exception Si la cantidad es negativa, arroja un error
+     */
+    public void ingresar(double cantidad) throws Exception {
+        if (cantidad < 0) {
+            throw new Exception("No se puede ingresar una cantidad negativa");
+        }
+        saldo = saldo + cantidad;
+    }
+
+    /**
+     * Retira una cantidad de la cuenta, siempre que sea positiva y haya saldo
+     * suficiente
+     *
+     * @param cantidad cantidad a retirar, siempre positiva
+     * @throws Exception Si la cantidad es negativa o menor que el saldo en la
+     * cuenta, arroja un error
+     */
+    public void retirar(double cantidad) throws Exception {
+        if (cantidad <= 0) {
+            throw new Exception("No se puede retirar una cantidad negativa");
+        }
+        if (getSaldo() < cantidad) {
+            throw new Exception("No se hay suficiente saldo");
+        }
+        saldo = saldo - cantidad;
+    }
+    
+    /**
+     * Intenta ingresar 2300 euros y retirar 695 euros. Si falla, devuelve un
+     * mensaje de error
+     */
+    public void operativa_cuenta() {
+        try {
+            retirar(2300);
+        } catch (Exception e) {
+            System.out.print("Fallo al retirar");
+        }
+        try {
+            System.out.println("Ingreso en cuenta");
+            ingresar(695);
+        } catch (Exception e) {
+            System.out.print("Fallo al ingresar");
+        }
     }
 
 }

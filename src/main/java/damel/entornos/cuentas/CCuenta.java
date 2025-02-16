@@ -141,22 +141,4 @@ public class CCuenta {
         saldo = saldo - cantidad;
     }
     
-    /**
-     * Intenta ingresar 2300 euros y retirar 695 euros. Si falla, devuelve un
-     * mensaje de error
-     */
-    public void operativa_cuenta() {
-        try {
-            retirar(2300);
-        } catch (Exception e) {
-            System.out.print("Fallo al retirar");
-        }
-        try {
-            System.out.println("Ingreso en cuenta");
-            ingresar(695);
-        } catch (Exception e) {
-            System.out.print("Fallo al ingresar");
-        }
-    }
-
 }

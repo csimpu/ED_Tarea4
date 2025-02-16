@@ -22,17 +22,7 @@ public class Main {
         saldoActual = cuenta1.getSaldo();
         System.out.println("El saldo actual es "+ saldoActual );
 
-        try {
-            cuenta1.retirar(2300);
-        } catch (Exception e) {
-            System.out.print("Fallo al retirar");
-        }
-        try {
-            System.out.println("Ingreso en cuenta");
-            cuenta1.ingresar(695);
-        } catch (Exception e) {
-            System.out.print("Fallo al ingresar");
-        }
+        cuenta1.operativa_cuenta();
     }
 
 }
